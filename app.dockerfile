@@ -1,5 +1,5 @@
-FROM tilt.dev/nodejs-express-base
+FROM tilt.dev/demo-base
 
-WORKDIR '/var/www/app'
+WORKDIR '/app'
 
 ADD . .

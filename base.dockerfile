@@ -1,6 +1,6 @@
-FROM node:14-alpine
+FROM debian:bullseye-slim
 
-WORKDIR '/var/www/app'
-ADD package.json package.json
-RUN npm install
-ENTRYPOINT node server.js
+WORKDIR '/app'
+ADD message.txt message.txt
+
+ENTRYPOINT cat message.txt

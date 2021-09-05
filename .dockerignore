@@ -1,3 +1,9 @@
-*.dockerfile
 README.md
 Tiltfile
+
+*.log
+*.sh
+*.bash
+x-*
+*
+!package/message.txt
