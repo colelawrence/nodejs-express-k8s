@@ -1,0 +1,197 @@
+x-pass-docker-build-with-default-platform.sh
+---------------------
+#!/bin/sh
+
+sh ./reset.sh > /dev/null
+
+export DOCKER_DEFAULT_PLATFORM=linux/arm64
+
+docker build --rm --file=./base.dockerfile \
+  -t tilt.dev/demo-base \
+  ./package \
+&& \
+docker build --rm --file=./app.dockerfile \
+  -t tilt.dev/demo-app \
+  . \
+&& \
+docker run --rm -it tilt.dev/demo-app
+
+sh ./info.sh
+---------------------
+arm64
+
+Error: Deleting k8s entities: could not set up k8s client: Kubernetes context not set in [/Users/cole/.kube/config]
+#1 [internal] load build definition from base.dockerfile
+#1 sha256:d264a88171dd3c954686d544c2857f0e3b32916859c318db92a047481e9f5512
+#1 transferring dockerfile: 138B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:434a454b20b81096827f58fabbf1d40c95216398f817491f1a97c44713a3487b
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/alpine:3.14.2
+#3 sha256:89b7ab87d5ed48a30b3dd1d19aa7ef06b6b2550c288df50dace3423eb96e5b6a
+#3 DONE 0.4s
+
+#6 [internal] load build context
+#6 sha256:0dc43e53ff6774b378ff681b54aae315b65881c492afd4f548a3205de1f74ed3
+#6 transferring context: 51B done
+#6 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/alpine:3.14.2@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
+#4 sha256:b5364ccc7bf62d6fd2cded71ad5673f09fee2daf5f606ffed9a69d200bf592c2
+#4 resolve docker.io/library/alpine:3.14.2@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a done
+#4 sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a 1.64kB / 1.64kB done
+#4 sha256:b06a5cf61b2956088722c4f1b9a6f71dfe95f0b1fe285d44195452b8a1627de7 528B / 528B done
+#4 sha256:bb3de5531c18f185667b0be0e400ab24aa40f4440093de82baf4072e14af3b84 1.49kB / 1.49kB done
+#4 sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 0B / 2.71MB 0.1s
+#4 sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 2.71MB / 2.71MB 0.2s done
+#4 extracting sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9
+#4 extracting sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 0.1s done
+#4 DONE 0.3s
+
+#5 [2/3] WORKDIR /app
+#5 sha256:508ffbbf31d0b12f18577e1b5e195dbe6221a71f22e56d62cd56a82f327b18c8
+#5 DONE 0.0s
+
+#7 [3/3] ADD message.txt message.txt
+#7 sha256:ec83e18063308094c97ae83456b93713a9458b7cd3293e8c77dc386eb643e2c8
+#7 DONE 0.0s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers 0.0s done
+#8 writing image sha256:f7963de2987dded202e3ad7b55ac99467df685c4cd0df7cf66d127ef70cfd0f1 done
+#8 naming to tilt.dev/demo-base done
+#8 DONE 0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+#1 [internal] load build definition from app.dockerfile
+#1 sha256:7e2215c73725ffd5235daaed44f39831bdf4c55e1451d7218834759825098240
+#1 transferring dockerfile: 95B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:dfd9caa25a02cbe477232536ecc29c72bb5b2ae33f0a6908f46d4fb7028ad0be
+#2 transferring context: 105B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for tilt.dev/demo-base:latest
+#3 sha256:278cdfe9ab0b7cf444d7ca574e22ff2fa17442ca89561564615f2f78b32c2040
+#3 DONE 0.0s
+
+#4 [1/3] FROM tilt.dev/demo-base
+#4 sha256:8846017ae1147541031d1b1e85866d21d59cc310182a969143f4168c70cda1f1
+#4 DONE 0.0s
+
+#6 [internal] load build context
+#6 sha256:44189bbb7deb39fb73c458b390789a591c810c548516d90ddbc2a17b95ce5851
+#6 transferring context: 90B done
+#6 DONE 0.0s
+
+#5 [2/3] WORKDIR /app
+#5 sha256:a2f07bcaed3178a7e805f8aa9396c38a9c3110633c7285edda31669a2894c260
+#5 DONE 0.0s
+
+#7 [3/3] ADD . .
+#7 sha256:bdcc3955782815006f20daf783a73e9cf75b502f37e61735ac4ef57784ad6109
+#7 DONE 0.0s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers 0.0s done
+#8 writing image sha256:adb3f93ce1bbc637c6ed9cb6e6341281a66fb7056f7c946266fe2b3ca4bd79a9 done
+#8 naming to tilt.dev/demo-app done
+#8 DONE 0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Hello world!
+-- tilt.dev/demo-base Architecture
+"arm64"
+
+-- tilt.dev/demo-base full inspect
+[
+  {
+    "Id": "sha256:f7963de2987dded202e3ad7b55ac99467df685c4cd0df7cf66d127ef70cfd0f1",
+    "RepoTags": [
+      "tilt.dev/demo-base:latest"
+    ],
+    "RepoDigests": [],
+    "Parent": "",
+    "Comment": "buildkit.dockerfile.v0",
+    "Created": "2021-09-05T15:58:38.765957214Z",
+    "Container": "",
+    "ContainerConfig": {
+      "Hostname": "",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": false,
+      "AttachStderr": false,
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": null,
+      "Cmd": null,
+      "Image": "",
+      "Volumes": null,
+      "WorkingDir": "",
+      "Entrypoint": null,
+      "OnBuild": null,
+      "Labels": null
+    },
+    "DockerVersion": "",
+    "Author": "",
+    "Config": {
+      "Hostname": "",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": false,
+      "AttachStderr": false,
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      ],
+      "Cmd": null,
+      "Image": "",
+      "Volumes": null,
+      "WorkingDir": "/app",
+      "Entrypoint": [
+        "/bin/sh",
+        "-c",
+        "cat message.txt"
+      ],
+      "OnBuild": null,
+      "Labels": null
+    },
+    "Architecture": "arm64",
+    "Os": "linux",
+    "Size": 5336645,
+    "VirtualSize": 5336645,
+    "GraphDriver": {
+      "Data": {
+        "LowerDir": "/var/lib/docker/overlay2/3g3mk7pzy4u8wak75efdpiyxa/diff:/var/lib/docker/overlay2/8883560243f54d4a6ec0a8557ae3db47042d2476144426b7754e949d8a9b09d9/diff",
+        "MergedDir": "/var/lib/docker/overlay2/opaf2d1psmx6c28n6x1fwwwh5/merged",
+        "UpperDir": "/var/lib/docker/overlay2/opaf2d1psmx6c28n6x1fwwwh5/diff",
+        "WorkDir": "/var/lib/docker/overlay2/opaf2d1psmx6c28n6x1fwwwh5/work"
+      },
+      "Name": "overlay2"
+    },
+    "RootFS": {
+      "Type": "layers",
+      "Layers": [
+        "sha256:ee420dfed78aeb92dbd78bf0e97e3a3cad5ccfbb59fa5dac4e04639210cc7905",
+        "sha256:db5148b3ba72a67e7a51c08d7bdbf74312dd99f3bd7f21d52cc1ee980bdab3ec",
+        "sha256:2a05dca12deb4142e2500d04ecb01280b589a1dd50e3e231c7c554ee75e50f29"
+      ]
+    },
+    "Metadata": {
+      "LastTagTime": "2021-09-05T15:58:38.78478588Z"
+    }
+  }
+]
