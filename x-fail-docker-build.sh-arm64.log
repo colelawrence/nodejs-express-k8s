@@ -18,61 +18,60 @@ sh ./info.sh
 ---------------------
 arm64
 
-Error: Deleting k8s entities: could not set up k8s client: Kubernetes context not set in [/Users/cole/.kube/config]
 #1 [internal] load build definition from base.dockerfile
-#1 sha256:aee46763c80b52a6b456f6c71f9c58fed155ca0c69d622584e77e17f9a0d703a
+#1 sha256:7e700a302002e5b766eeb3f7d46355e64db2d7f47d05694f59c95ac8fab6a702
 #1 transferring dockerfile: 138B done
 #1 DONE 0.0s
 
 #2 [internal] load .dockerignore
-#2 sha256:c0cffeb05dc91cdfadb1ab5a078320a9bdd6a3e779a9933fe7d6ecb378a7d7e6
+#2 sha256:a3c223641aa57de6888912a6297a4877802da5391bdb9149a29844fe3b2bab55
 #2 transferring context: 2B done
 #2 DONE 0.0s
 
 #3 [internal] load metadata for docker.io/library/alpine:3.14.2
 #3 sha256:89b7ab87d5ed48a30b3dd1d19aa7ef06b6b2550c288df50dace3423eb96e5b6a
-#3 DONE 0.7s
+#3 DONE 0.4s
 
 #6 [internal] load build context
-#6 sha256:ef65a0c879cd06cbc3a76b37f6ec10cdd11616326921ffbc8b00117e685f6ffb
+#6 sha256:c3f104ccfbe668f43daad758b23479ea5d35c5799f99c63787bbfe348146e6a7
 #6 transferring context: 51B done
 #6 DONE 0.0s
 
-#7 [1/3] FROM docker.io/library/alpine:3.14.2@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
-#7 sha256:b5364ccc7bf62d6fd2cded71ad5673f09fee2daf5f606ffed9a69d200bf592c2
-#7 resolve docker.io/library/alpine:3.14.2@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a done
-#7 sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a 1.64kB / 1.64kB done
-#7 sha256:b06a5cf61b2956088722c4f1b9a6f71dfe95f0b1fe285d44195452b8a1627de7 528B / 528B done
-#7 sha256:bb3de5531c18f185667b0be0e400ab24aa40f4440093de82baf4072e14af3b84 1.49kB / 1.49kB done
-#7 sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 0B / 2.71MB 0.1s
-#7 sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 2.71MB / 2.71MB 0.2s done
-#7 extracting sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9
-#7 extracting sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 0.1s done
-#7 DONE 0.3s
+#4 [1/3] FROM docker.io/library/alpine:3.14.2@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
+#4 sha256:b5364ccc7bf62d6fd2cded71ad5673f09fee2daf5f606ffed9a69d200bf592c2
+#4 resolve docker.io/library/alpine:3.14.2@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a done
+#4 sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a 1.64kB / 1.64kB done
+#4 sha256:b06a5cf61b2956088722c4f1b9a6f71dfe95f0b1fe285d44195452b8a1627de7 528B / 528B done
+#4 sha256:bb3de5531c18f185667b0be0e400ab24aa40f4440093de82baf4072e14af3b84 1.49kB / 1.49kB done
+#4 sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 0B / 2.71MB 0.1s
+#4 sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 2.71MB / 2.71MB 0.2s done
+#4 extracting sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9
+#4 extracting sha256:552d1f2373af9bfe12033568ebbfb0ccbb0de11279f9a415a29207e264d7f4d9 0.1s done
+#4 DONE 0.3s
 
-#4 [2/3] WORKDIR /app
-#4 sha256:508ffbbf31d0b12f18577e1b5e195dbe6221a71f22e56d62cd56a82f327b18c8
-#4 DONE 0.0s
-
-#5 [3/3] ADD message.txt message.txt
-#5 sha256:f184780a13584a1c21e8a2dcb34bd9a3b425612bc1ab256b620d0070b96c6f41
+#5 [2/3] WORKDIR /app
+#5 sha256:508ffbbf31d0b12f18577e1b5e195dbe6221a71f22e56d62cd56a82f327b18c8
 #5 DONE 0.0s
+
+#7 [3/3] ADD message.txt message.txt
+#7 sha256:47e1e2510d1f674ee9dee8021d642f4742288d09ce25d0432a875709b7b0e25c
+#7 DONE 0.0s
 
 #8 exporting to image
 #8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
 #8 exporting layers 0.0s done
-#8 writing image sha256:f3b9110a8059d87cfc05a35989b80e472323b590c5b9c3a25d3e21a27972815d done
+#8 writing image sha256:12f70c62a416ad11367f7dc4d1cd5d87176243ace003e26f69f6d21ce92bf03d done
 #8 naming to tilt.dev/demo-base done
 #8 DONE 0.0s
 
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
 #1 [internal] load build definition from app.dockerfile
-#1 sha256:831d0ac2a8e29a9065f1788b89df5c97d282c8407b7e74759bd4451c0a09df01
+#1 sha256:f021178279f09eabdc52c945aa5c6327f529c45727d39836d553dea6f17a321d
 #1 transferring dockerfile: 95B done
 #1 DONE 0.0s
 
 #2 [internal] load .dockerignore
-#2 sha256:05b33ec2ff32e8914bcb83682bd4bd593be20a5c8dd97eac4d85132a39f7c3b4
+#2 sha256:24d2a15876b5345e563ad0aefe18934ba819f6b0d037b9a2d3591b5d900182a7
 #2 transferring context: 105B done
 #2 DONE 0.0s
 
@@ -89,14 +88,14 @@ failed to solve with frontend dockerfile.v0: failed to create LLB definition: ti
 -- tilt.dev/demo-base full inspect
 [
   {
-    "Id": "sha256:f3b9110a8059d87cfc05a35989b80e472323b590c5b9c3a25d3e21a27972815d",
+    "Id": "sha256:12f70c62a416ad11367f7dc4d1cd5d87176243ace003e26f69f6d21ce92bf03d",
     "RepoTags": [
       "tilt.dev/demo-base:latest"
     ],
     "RepoDigests": [],
     "Parent": "",
     "Comment": "buildkit.dockerfile.v0",
-    "Created": "2021-09-05T15:58:36.785958379Z",
+    "Created": "2021-09-05T16:25:54.584448513Z",
     "Container": "",
     "ContainerConfig": {
       "Hostname": "",
@@ -151,10 +150,10 @@ failed to solve with frontend dockerfile.v0: failed to create LLB definition: ti
     "VirtualSize": 5336645,
     "GraphDriver": {
       "Data": {
-        "LowerDir": "/var/lib/docker/overlay2/cho1dyuu14i9ik86926uq8dcq/diff:/var/lib/docker/overlay2/b47e926d7de816fd64a5104feaf2ed619ddedb9c6e777336ded777112975100d/diff",
-        "MergedDir": "/var/lib/docker/overlay2/wczjsep3okvy3j1u4c9kp5ti2/merged",
-        "UpperDir": "/var/lib/docker/overlay2/wczjsep3okvy3j1u4c9kp5ti2/diff",
-        "WorkDir": "/var/lib/docker/overlay2/wczjsep3okvy3j1u4c9kp5ti2/work"
+        "LowerDir": "/var/lib/docker/overlay2/iay8z0xx6aozj7lgdtxkiueut/diff:/var/lib/docker/overlay2/7084e8bdafe5b8cdcfe6979b6d9ad5840f1a54ebe21c4d5e94195ff28f5f8428/diff",
+        "MergedDir": "/var/lib/docker/overlay2/wh47mcv1mfhfzz0kwbzf3wjjj/merged",
+        "UpperDir": "/var/lib/docker/overlay2/wh47mcv1mfhfzz0kwbzf3wjjj/diff",
+        "WorkDir": "/var/lib/docker/overlay2/wh47mcv1mfhfzz0kwbzf3wjjj/work"
       },
       "Name": "overlay2"
     },
@@ -162,12 +161,12 @@ failed to solve with frontend dockerfile.v0: failed to create LLB definition: ti
       "Type": "layers",
       "Layers": [
         "sha256:ee420dfed78aeb92dbd78bf0e97e3a3cad5ccfbb59fa5dac4e04639210cc7905",
-        "sha256:27625c1939678ae273cc59372608bc469300a8cc2f67ab2efef16e49032989a2",
-        "sha256:c6442ab06ff3f896bfdb015c25607a58f4ec5f894fa408de8d97cf75839ef337"
+        "sha256:6f244c19319962f23d847a1c1043eebc972d0e2e5721448db1de10eaac7b1f5f",
+        "sha256:e18cd0975149addc1ab583bad4eb54f7f6ea2c7baf35ef6575ef48259d7da31d"
       ]
     },
     "Metadata": {
-      "LastTagTime": "2021-09-05T15:58:36.801085254Z"
+      "LastTagTime": "2021-09-05T16:25:54.599577471Z"
     }
   }
 ]

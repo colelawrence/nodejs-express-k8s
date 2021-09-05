@@ -1,0 +1,159 @@
+x-pass-docker-build-with-no-builderkit.sh
+---------------------
+#!/bin/sh
+
+sh ./reset.sh > /dev/null
+
+export DOCKER_BUILDKIT=0
+
+docker build --rm --file=./base.dockerfile \
+  -t tilt.dev/demo-base \
+  ./package \
+&& \
+docker build --rm --file=./app.dockerfile \
+  -t tilt.dev/demo-app \
+  . \
+&& \
+docker run --rm -it tilt.dev/demo-app
+
+sh ./info.sh
+---------------------
+arm64
+
+Sending build context to Docker daemon  2.607kB
+Step 1/4 : FROM alpine:3.14.2
+3.14.2: Pulling from library/alpine
+552d1f2373af: Pulling fs layer
+552d1f2373af: Verifying Checksum
+552d1f2373af: Download complete
+552d1f2373af: Pull complete
+Digest: sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
+Status: Downloaded newer image for alpine:3.14.2
+ ---> bb3de5531c18
+Step 2/4 : WORKDIR '/app'
+ ---> Running in 47a2cf058af9
+Removing intermediate container 47a2cf058af9
+ ---> 9ac5ffa246d0
+Step 3/4 : ADD message.txt message.txt
+ ---> 0f9b3befdc55
+Step 4/4 : ENTRYPOINT cat message.txt
+ ---> Running in 147d7789fd48
+Removing intermediate container 147d7789fd48
+ ---> 785694f58469
+Successfully built 785694f58469
+Successfully tagged tilt.dev/demo-base:latest
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Sending build context to Docker daemon  4.096kB
+Step 1/3 : FROM tilt.dev/demo-base
+ ---> 785694f58469
+Step 2/3 : WORKDIR '/app'
+ ---> Running in a35585ae9fd5
+Removing intermediate container a35585ae9fd5
+ ---> e5de16b8ce1c
+Step 3/3 : ADD . .
+ ---> 3372fe846a24
+Successfully built 3372fe846a24
+Successfully tagged tilt.dev/demo-app:latest
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Hello world!
+-- tilt.dev/demo-base Architecture
+"arm64"
+
+-- tilt.dev/demo-base full inspect
+[
+  {
+    "Id": "sha256:785694f58469e98bd0eba7c7d905494908bc44a07b2ab8f123925a52117191a4",
+    "RepoTags": [
+      "tilt.dev/demo-base:latest"
+    ],
+    "RepoDigests": [],
+    "Parent": "sha256:0f9b3befdc553b9e377a4ac80f8687c3f7cac61c183eb1bdcaca0abb3f098e63",
+    "Comment": "",
+    "Created": "2021-09-05T16:26:00.600242793Z",
+    "Container": "147d7789fd4833beeed7526ee5ceac15b745ed6c4a286c548d1ab3297149dfd5",
+    "ContainerConfig": {
+      "Hostname": "147d7789fd48",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": false,
+      "AttachStderr": false,
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      ],
+      "Cmd": [
+        "/bin/sh",
+        "-c",
+        "#(nop) ",
+        "ENTRYPOINT [\"/bin/sh\" \"-c\" \"cat message.txt\"]"
+      ],
+      "Image": "sha256:0f9b3befdc553b9e377a4ac80f8687c3f7cac61c183eb1bdcaca0abb3f098e63",
+      "Volumes": null,
+      "WorkingDir": "/app",
+      "Entrypoint": [
+        "/bin/sh",
+        "-c",
+        "cat message.txt"
+      ],
+      "OnBuild": null,
+      "Labels": {}
+    },
+    "DockerVersion": "20.10.8",
+    "Author": "",
+    "Config": {
+      "Hostname": "",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": false,
+      "AttachStderr": false,
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      ],
+      "Cmd": null,
+      "Image": "sha256:0f9b3befdc553b9e377a4ac80f8687c3f7cac61c183eb1bdcaca0abb3f098e63",
+      "Volumes": null,
+      "WorkingDir": "/app",
+      "Entrypoint": [
+        "/bin/sh",
+        "-c",
+        "cat message.txt"
+      ],
+      "OnBuild": null,
+      "Labels": null
+    },
+    "Architecture": "arm64",
+    "Variant": "v8",
+    "Os": "linux",
+    "Size": 5336645,
+    "VirtualSize": 5336645,
+    "GraphDriver": {
+      "Data": {
+        "LowerDir": "/var/lib/docker/overlay2/2ef7501277076d4861d4d08ac217058d79cbbf67ba953804aab8062c1eef9ecf/diff:/var/lib/docker/overlay2/9b2b7314f0ea28110fb75721ea9ad0b3cef6593f3974b9999b17e765688b164a/diff",
+        "MergedDir": "/var/lib/docker/overlay2/066e425cde470673b57a1758cebe36db8644b540760ab9166374623c158d6f40/merged",
+        "UpperDir": "/var/lib/docker/overlay2/066e425cde470673b57a1758cebe36db8644b540760ab9166374623c158d6f40/diff",
+        "WorkDir": "/var/lib/docker/overlay2/066e425cde470673b57a1758cebe36db8644b540760ab9166374623c158d6f40/work"
+      },
+      "Name": "overlay2"
+    },
+    "RootFS": {
+      "Type": "layers",
+      "Layers": [
+        "sha256:ee420dfed78aeb92dbd78bf0e97e3a3cad5ccfbb59fa5dac4e04639210cc7905",
+        "sha256:480a523c1925b41118f8d5fbb0e9f3888f00a36c194a5da37fabc9393ff1b988",
+        "sha256:0506f5edf64053f6a4f5d6d6c55196b1e8dddfcccdabebdca6cede72fc4e993c"
+      ]
+    },
+    "Metadata": {
+      "LastTagTime": "2021-09-05T16:26:00.609229793Z"
+    }
+  }
+]
